@@ -1,11 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App.jsx';
+import MyRouter from './MyRouter.jsx';
 
-class MyRouter extends React.Component {
-	render() {
-		return (<App></App>)
-	}
-}
-
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(<MyRouter/>, document.getElementById('root'));
