@@ -1,6 +1,6 @@
 import React from 'react'
-import {Router, Route, Link, Redirect} from "react-router-dom";
-import createBrowserHistory from "history/createBrowserHistory";
+import {BrowserRouter, Route, Link, Redirect} from "react-router-dom";
+console.log(process.env.NODE_ENV);
 
 let authState = false;
 
@@ -87,9 +87,14 @@ let AuthedRoute = ({
         }}></Route>
 }
 
+let basename = (
+    process.env.NODE_ENV == "development"
+    ? null
+    : "/frontend-authed-routes") // for github pages ;)
+
 class MyRouter extends React.Component {
     render() {
-        return (<Router history={createBrowserHistory()}>
+        return (<BrowserRouter basename={basename}>
             <div>
                 <ul>
                     <li>
@@ -114,7 +119,7 @@ class MyRouter extends React.Component {
                 <AuthedRoute path="/my-settings" component={Settings}></AuthedRoute>
                 <UnauthedRoute path="/sign-in" component={SignIn}></UnauthedRoute>
             </div>
-        </Router>)
+        </BrowserRouter>)
     }
 }
 export default MyRouter;
