@@ -1,6 +1,6 @@
 import React from 'react'
-import {BrowserRouter, Route, Link, Redirect} from "react-router-dom";
-console.log(process.env.NODE_ENV);
+import {BrowserRouter, Router, Route, Link, Redirect} from "react-router-dom";
+import createBrowserHistory from 'history/createBrowserHistory'
 
 let authState = false;
 
@@ -25,6 +25,7 @@ let Home = () => {
 let Pricing = () => {
     return (<div>This is the pricing page</div>);
 }
+
 let About = () => {
     return (<div>This is the about page</div>);
 }
@@ -88,7 +89,7 @@ let AuthedRoute = ({
 }
 
 let basename = (
-    process.env.NODE_ENV == "development"
+    process.env.NODE_ENV === "development"
     ? null
     : "/frontend-authed-routes") // for github pages ;)
 
